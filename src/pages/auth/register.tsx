@@ -1,0 +1,23 @@
+import BackgroundImage from "@/components/Ui/BackgroundImage";
+import Image from "next/image";
+import imageSrc from "/public/images/auth/background.jpg";
+import RegisterForm from "@/components/Pages/Auth/RegisterForm";
+
+const Registration = () => {
+  return (
+    <BackgroundImage
+      image={
+        <Image
+          src={imageSrc}
+          alt="Image Alt Text"
+          className="object-cover object-center"
+          fill
+        />
+      }
+    >
+      <RegisterForm />
+    </BackgroundImage>
+  );
+};
+
+export default Registration;
