@@ -1,6 +1,6 @@
 import BackgroundImage from "@/components/UI/BackgroundImage";
 import Image from "next/image";
-import imageSrc from "/public/images/auth/background.jpg";
+import imageSrc from "/public/images/auth/background.png";
 import BlueButton from "@/components/UI/Buttons/BlueButton";
 import InputFields from "@/components/UI/InputFields";
 import LogoTitle from "@/components/UI/LogoTitle";

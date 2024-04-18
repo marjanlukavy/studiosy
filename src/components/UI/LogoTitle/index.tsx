@@ -1,10 +1,15 @@
+import Image from "next/image";
 import React from "react";
 
 const LogoTitle = () => {
   return (
-    <h1 className="text-white font-dosis font-bold text-[96px] leading-[121px] test-shadow">
-      studiosy
-    </h1>
+    <Image
+      src={"/images/logo.svg"}
+      alt={"Logo"}
+      width={329}
+      height={121}
+      quality={80}
+    />
   );
 };
 

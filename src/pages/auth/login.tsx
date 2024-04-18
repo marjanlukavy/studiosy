@@ -1,6 +1,6 @@
 import BackgroundImage from "@/components/UI/BackgroundImage";
 import Image from "next/image";
-import imageSrc from "/public/images/auth/background.jpg";
+import imageSrc from "/public/images/auth/background.png";
 import LoginForm from "@/components/Pages/Auth/LoginForm";
 
 const Login = () => {

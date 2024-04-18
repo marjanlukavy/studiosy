@@ -24,7 +24,7 @@ export default function BackgroundImage({
       className={classNames("relative h-screen", "overflow-hidden", className)}
       {...props}
     >
-      <div className="absolute inset-0 -z-10 opacity-10">{image}</div>
+      <div className="absolute inset-0 -z-10">{image}</div>
       <div className="z-10 flex justify-center items-center h-full">
         {children}
       </div>
