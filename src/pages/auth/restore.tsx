@@ -1,9 +1,9 @@
-import BackgroundImage from "@/components/Ui/BackgroundImage";
+import BackgroundImage from "@/components/UI/BackgroundImage";
 import Image from "next/image";
 import imageSrc from "/public/images/auth/background.jpg";
-import BlueButton from "@/components/Ui/Buttons/BlueButton";
-import InputFields from "@/components/Ui/InputFields";
-import LogoTitle from "@/components/Ui/LogoTitle";
+import BlueButton from "@/components/UI/Buttons/BlueButton";
+import InputFields from "@/components/UI/InputFields";
+import LogoTitle from "@/components/UI/LogoTitle";
 import PageContainer from "@/components/Pages/Auth/PageContainer";
 import AuthLink from "@/components/Pages/Auth/PageContainer/AuthLink";
 import { useRouter } from "next/navigation";
@@ -30,7 +30,7 @@ const RestoreEmail = () => {
     >
       <PageContainer className="gap-[30px]">
         <LogoTitle />
-        <div className="flex flex-col gap-5 max-w-[306px]">
+        <div className="flex flex-col gap-5 max-w-[306px] w-full justify-center">
           <InputFields placeholder={"Електронна адреса"} />
         </div>
         <BlueButton onClick={handleRestorePassword}>

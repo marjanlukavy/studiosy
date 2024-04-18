@@ -1,4 +1,4 @@
-import BackgroundImage from "@/components/Ui/BackgroundImage";
+import BackgroundImage from "@/components/UI/BackgroundImage";
 import Image from "next/image";
 import imageSrc from "/public/images/auth/background.jpg";
 import LoginForm from "@/components/Pages/Auth/LoginForm";

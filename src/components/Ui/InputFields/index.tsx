@@ -7,15 +7,17 @@ interface InputFieldsProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const InputFields = ({ placeholder, className, ...rest }: InputFieldsProps) => {
   return (
-    <input
-      type="text"
-      placeholder={placeholder}
-      className={classNames(
-        "py-[11px] px-[65px] text-[20px] leading-[23.44px] text-gray bg-inputBackgroundOpacity font-extralight font-roboto border border-[#ABABAB] border-b border-b-[#FFFFFF] rounded-lg",
-        className
-      )}
-      {...rest}
-    />
+    <div className="text-center">
+      <input
+        type="text"
+        placeholder={placeholder}
+        className={classNames(
+          "border-gradient-br-grey-blue-900 border-transparent border-solid border py-[11px] max-w-[306px] w-full text-center text-[20px] leading-[23.44px] text-gray  font-extralight font-roboto  rounded-lg",
+          className
+        )}
+        {...rest}
+      />
+    </div>
   );
 };
 

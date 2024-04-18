@@ -1,5 +1,5 @@
-import BlueButton from "@/components/Ui/Buttons/BlueButton";
-import LogoTitle from "@/components/Ui/LogoTitle";
+import BlueButton from "@/components/UI/Buttons/BlueButton";
+import LogoTitle from "@/components/UI/LogoTitle";
 import PageContainer from "@/components/Pages/Auth/PageContainer";
 import useAuthStore from "@/stores/auth.store";
 

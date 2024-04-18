@@ -1,15 +1,15 @@
 import React from "react";
 import PageContainer from "../PageContainer";
-import BlueButton from "@/components/Ui/Buttons/BlueButton";
-import InputFields from "@/components/Ui/InputFields";
-import LogoTitle from "@/components/Ui/LogoTitle";
+import BlueButton from "@/components/UI/Buttons/BlueButton";
+import InputFields from "@/components/UI/InputFields";
+import LogoTitle from "@/components/UI/LogoTitle";
 import AuthLink from "../PageContainer/AuthLink";
 
 const LoginForm = () => {
   return (
     <PageContainer className="gap-[30px]">
       <LogoTitle />
-      <div className="flex flex-col gap-5 max-w-[306px]">
+      <div className="flex flex-col gap-5 max-w-[306px] w-full">
         <InputFields placeholder={"Електронна адреса"} />
         <InputFields placeholder={"Пароль"} type="password" />
       </div>
