@@ -1,7 +1,7 @@
 import React from "react";
 import PageContainer from "../PageContainer";
 import BlueButton from "@/components/UI/Buttons/BlueButton";
-import InputFields from "@/components/UI/InputFields";
+import InputFields from "@/components/UI/InputField";
 import LogoTitle from "@/components/UI/LogoTitle";
 import AuthLink from "../PageContainer/AuthLink";
 

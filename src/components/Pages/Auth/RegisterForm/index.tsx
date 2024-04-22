@@ -1,5 +1,5 @@
 import BlueButton from "@/components/UI/Buttons/BlueButton";
-import InputFields from "@/components/UI/InputFields";
+import InputFields from "@/components/UI/InputField";
 import LogoTitle from "@/components/UI/LogoTitle";
 import React from "react";
 import VerifyNewAccountEmail from "../AuthProcess/VerifyNewAccountEmail";
