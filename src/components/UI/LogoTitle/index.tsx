@@ -9,6 +9,7 @@ const LogoTitle = () => {
       width={329}
       height={121}
       quality={80}
+      className="mx-auto"
     />
   );
 };
