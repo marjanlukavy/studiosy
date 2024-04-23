@@ -212,3 +212,48 @@ export const LeftArrowIconSVG = () => {
     </svg>
   );
 };
+
+export const EditIconSVG = () => {
+  return (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M23.1592 13.5599L24.9459 11.6666C26.8392 9.66659 27.6925 7.38659 24.7459 4.59992C21.7992 1.82659 19.5725 2.79992 17.6792 4.79992L6.73248 16.3866C6.31915 16.8266 5.91915 17.6932 5.83915 18.2932L5.34582 22.6132C5.17248 24.1732 6.29248 25.2399 7.83915 24.9732L12.1325 24.2399C12.7325 24.1332 13.5725 23.6932 13.9859 23.2399L19.2525 17.6666"
+        stroke="#A1A1A1"
+        stroke-width="2"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M15.8542 6.7334C16.4275 10.4134 19.4142 13.2267 23.1209 13.6"
+        stroke="#A1A1A1"
+        stroke-width="2"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M4 29.3333H18.6667"
+        stroke="#A1A1A1"
+        stroke-width="2"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M24 29.3333H28"
+        stroke="#A1A1A1"
+        stroke-width="2"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};

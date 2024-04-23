@@ -30,12 +30,11 @@ export default function BackgroundImage({
       className={classNames("w-full relative", conditionalClass, className)}
       {...props}
     >
-      {" "}
       <div className="absolute inset-0 -z-10">
         <Image
           src={imageSrc}
           alt="Image Alt Text"
-          className="object-cover object-center"
+          className="object-center"
           fill
         />
       </div>

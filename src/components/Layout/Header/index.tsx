@@ -11,7 +11,8 @@ import React from "react";
 const Header = () => {
   const pathname = usePathname();
 
-  const isCreateStudioPathname = pathname === "/studio/create-studio";
+  const isCreateStudioPathname =
+    pathname === "/studio/create-studio" || pathname === "/studio/edit-studio";
 
   return (
     <header className="pr-[100px] pl-[58px] mt-[37px] flex items-center justify-between w-full">

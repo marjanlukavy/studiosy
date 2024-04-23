@@ -1,19 +1,13 @@
+import CreateStudioComponent from "@/components/Pages/Studio/CreateStudio";
+import CreateStageStudio from "@/components/Pages/Studio/MyStudio";
 import BackgroundImage from "@/components/UI/BackgroundImage";
 import { PlusIconSVG } from "@/components/UI/SVGIcons";
 import Link from "next/link";
 import React from "react";
 
 const MyStudio = () => {
-  return (
-    <div className="centered-container flex items-center flex-col pt-10 relative">
-      <span className="text-black text-[20px] leading-[23px]">
-        Додати свою студію
-      </span>
-      <Link href={"/studio/create-studio"}>
-        <PlusIconSVG className="absolute inset-0 m-auto hover:scale-110 cursor-pointer transition-all duration-300 ease-in-out" />
-      </Link>
-    </div>
-  );
+  const emptyStudio = false;
+  return <>{emptyStudio ? <CreateStudioComponent /> : <CreateStageStudio />}</>;
 };
 
 export default MyStudio;

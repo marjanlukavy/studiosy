@@ -25,6 +25,7 @@ const config: Config = {
         customWhite: "#F4F4F9",
         inputBackgroundOpacity: "#F5F5F580",
         black: "rgb(52, 63, 66)",
+        red: "#FF3E3E",
       },
 
       fontFamily: {
