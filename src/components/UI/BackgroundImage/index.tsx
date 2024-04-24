@@ -21,8 +21,6 @@ export default function BackgroundImage({
 }: BackgroundImageProps & BackgroundImageAdditionalProps) {
   const pathname = usePathname();
 
-  console.log(pathname);
-
   const conditionalClass = pathname === "/studio/my-studio" ? "h-screen" : "";
 
   return (

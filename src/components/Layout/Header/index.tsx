@@ -12,10 +12,12 @@ const Header = () => {
   const pathname = usePathname();
 
   const isCreateStudioPathname =
-    pathname === "/studio/create-studio" || pathname === "/studio/edit-studio";
+    pathname === "/studio/create-studio" ||
+    pathname === "/studio/edit-studio" ||
+    pathname === "/studio/manage-stages";
 
   return (
-    <header className="pr-[100px] pl-[58px] mt-[37px] flex items-center justify-between w-full">
+    <header className="px-[100px] pt-[37px] pb-[20px] flex items-center justify-between w-full">
       {isCreateStudioPathname ? (
         <Link
           href={"/studio/my-studio"}
@@ -26,7 +28,10 @@ const Header = () => {
         </Link>
       ) : null}
 
-      <LogoTitle />
+      <div className="flex items-center justify-center m-auto">
+        <LogoTitle />
+      </div>
+
       <div className="flex items-center gap-5">
         <LocationIconSVG />
         <UserProfileIconSVG />

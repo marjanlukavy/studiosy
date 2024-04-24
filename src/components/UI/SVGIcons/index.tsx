@@ -1,9 +1,15 @@
-export const PlusIconSVG = ({ className }: { className: string }) => {
+export const PlusIconSVG = ({
+  className,
+  size,
+}: {
+  className?: string;
+  size?: number;
+}) => {
   return (
     <svg
       className={className}
-      width="90"
-      height="90"
+      width={size ?? 90}
+      height={size ?? 90}
       viewBox="0 0 90 90"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -11,30 +17,30 @@ export const PlusIconSVG = ({ className }: { className: string }) => {
       <path
         d="M45 67.5V22.5"
         stroke="#A1A1A1"
-        stroke-width="5.625"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="5.625"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M60 45H67.5"
         stroke="#A1A1A1"
-        stroke-width="5.625"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="5.625"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M22.5 45H43.725"
         stroke="#A1A1A1"
-        stroke-width="5.625"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="5.625"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M45 67.5V22.5"
         stroke="#A1A1A1"
-        stroke-width="5.625"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="5.625"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -254,6 +260,74 @@ export const EditIconSVG = () => {
         stroke-linecap="round"
         stroke-linejoin="round"
       />
+    </svg>
+  );
+};
+
+export const RemoveImageIconSVG = () => {
+  return (
+    <svg
+      width="29"
+      height="30"
+      viewBox="0 0 29 30"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16.9873 12.5627L18.1073 11.436"
+        stroke="#FF3F3F"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M10.5601 19.0283L14.2267 15.3396"
+        stroke="#FF3F3F"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M18.1067 19.0281L10.5601 11.436"
+        stroke="#FF3F3F"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M1 16.5196V19.256C1 25.9628 3.66667 28.6455 10.3333 28.6455H18.3333C25 28.6455 27.6667 25.9628 27.6667 19.256V11.2079C27.6667 4.50107 25 1.81836 18.3333 1.81836H10.3333C3.66667 1.81836 1 4.50107 1 11.2079"
+        stroke="#FF3F3F"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const FavoriteImageIconSVG = () => {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_454_546)">
+        <path
+          d="M21.7589 11.88C23.3189 10.32 22.8122 8.74665 20.6389 8.37332L17.2389 7.81332C16.6656 7.71999 15.9856 7.21333 15.7322 6.69333L13.8522 2.93332C12.8389 0.89332 11.1722 0.89332 10.1589 2.93332L8.27889 6.69333C8.02556 7.21333 7.34556 7.70665 6.77223 7.81332L3.37225 8.37332C1.19892 8.73332 0.692252 10.3067 2.25225 11.88L4.90557 14.5333C5.34557 14.9733 5.5989 15.84 5.45224 16.4667L4.69224 19.7467C4.09224 22.3333 5.47893 23.3467 7.75889 21.9867L10.9456 20.0933C11.5189 19.7467 12.4789 19.7467 13.0522 20.0933L16.2389 21.9867C18.5189 23.3333 19.9056 22.3333 19.3056 19.7467L18.5456 16.4667"
+          stroke="#FFCB14"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_454_546">
+          <rect width="24" height="24" fill="white" />
+        </clipPath>
+      </defs>
     </svg>
   );
 };
