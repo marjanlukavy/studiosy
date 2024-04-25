@@ -3,12 +3,13 @@ import LogoTitle from "@/components/UI/LogoTitle";
 import PageContainer from "@/components/Pages/Auth/PageContainer";
 import useAuthStore from "@/stores/auth.store";
 
-const VerifyNewAccountEmail = () => {
+const SendVerifyNewAccountEmail = () => {
   const setShowVerifyEmail = useAuthStore((state) => state.setShowVerifyEmail);
 
   const handleBack = () => {
     setShowVerifyEmail(false);
   };
+
   return (
     <PageContainer className="gap-[30px]">
       <LogoTitle />
@@ -21,4 +22,4 @@ const VerifyNewAccountEmail = () => {
   );
 };
 
-export default VerifyNewAccountEmail;
+export default SendVerifyNewAccountEmail;
