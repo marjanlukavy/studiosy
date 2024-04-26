@@ -2,14 +2,14 @@ import axios, { CreateAxiosDefaults } from "axios";
 import useTokenStore from "@/stores/token.store";
 
 export const auth = axios.create({
-  baseURL: "https://www.studiosy.info:8080/v1",
+  baseURL: "http://www.studiosy.info:8080/v1",
   headers: {
     "Content-Type": "application/json",
   },
 } as CreateAxiosDefaults);
 
 export const controller = axios.create({
-  baseURL: "https://www.studiosy.info:8081/v1",
+  baseURL: "http://www.studiosy.info:8081/v1",
   headers: {
     "Content-Type": "application/json",
   },
