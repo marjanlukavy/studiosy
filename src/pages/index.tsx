@@ -21,11 +21,11 @@ function Home() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col gap-5">
-      <div>Home {JSON.stringify(response)}</div>
-      <UnRegisteredUsers />
-      <UnRegisteredUsers />
-    </div>
+      <div className="w-full flex flex-col gap-5">
+        <div>Home {JSON.stringify(response)}</div>
+        <UnRegisteredUsers />
+        <UnRegisteredUsers />
+      </div>
   );
 }
 
