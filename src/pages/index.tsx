@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import UnRegisteredUsers from "@/components/Pages/Studio/UnregisteredUsers";
 import { auth } from "@/server/axiosConfig";
@@ -14,7 +13,6 @@ function Home() {
       try {
         const response = await auth.get("/me");
         setResponse({ status_code: response.status, data: response.data });
-        console.log(response);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -23,11 +21,11 @@ function Home() {
   }, []);
 
   return (
-      <div className="w-full flex flex-col gap-5">
-        <div>Home {JSON.stringify(response)}</div>
-        <UnRegisteredUsers />
-        <UnRegisteredUsers />
-      </div>
+    <div className="w-full flex flex-col gap-5">
+      <div>Home {JSON.stringify(response)}</div>
+      <UnRegisteredUsers />
+      <UnRegisteredUsers />
+    </div>
   );
 }
 

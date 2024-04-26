@@ -18,6 +18,7 @@ const SendResetPasswordEmail = () => {
   const { mutate } = useMutation({
     mutationFn: async (credential: { email: string }) => {
       try {
+        console.log(credential);
         const response = await sendResetPass(credential);
         if (response.status === 200) {
           toast("Check your email for further action.", {

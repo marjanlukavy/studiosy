@@ -25,6 +25,10 @@ const useTokenStore = create<TokenStore & TokenActions>()(
     {
       name: "token-storage",
       storage: createJSONStorage(() => localStorage),
+      partialize: (state) => ({
+        accessToken: state.accessToken,
+        refreshToken: state.refreshToken,
+      }),
     }
   )
 );

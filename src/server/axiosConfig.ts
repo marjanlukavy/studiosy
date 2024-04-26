@@ -17,7 +17,7 @@ export const controller = axios.create({
 
 auth.interceptors.request.use(
   async (config) => {
-    const token = useTokenStore.getState().accessToken;
+    const token = useTokenStore.getState?.().accessToken;
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
