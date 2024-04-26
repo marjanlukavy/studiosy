@@ -14,7 +14,7 @@ export const logUser = async (credentials: {
 };
 
 export const sendResetPass = async (credential: { email: string }) => {
-  return await auth.post("/auth/reset-password", credential.email);
+  return await auth.post("/auth/reset-password", credential);
 };
 
 export const confirmResetPass = async (credentials: {
