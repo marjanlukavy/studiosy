@@ -8,7 +8,6 @@ const withAuth = <P extends object>(Component: ComponentType<P>) => {
       null
     );
     const [userType, setUserType] = useState<string | null>(null);
-
     const router = useRouter();
 
     useEffect(() => {
@@ -42,7 +41,7 @@ const withAuth = <P extends object>(Component: ComponentType<P>) => {
         router.replace("/");
       }
     }, [isAuthenticated, userType, router]);
-
+    
     // Render the component if authenticated
     return isAuthenticated ? <Component {...(props as P)} /> : null;
   };
