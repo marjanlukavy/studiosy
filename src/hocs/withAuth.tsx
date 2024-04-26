@@ -7,6 +7,7 @@ const withAuth = <P extends object>(Component: ComponentType<P>) => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(
       null
     );
+    const [userType, setUserType] = useState<string | null>(null);
     const router = useRouter();
 
     useEffect(() => {
@@ -14,6 +15,7 @@ const withAuth = <P extends object>(Component: ComponentType<P>) => {
         try {
           const response = await auth.get("/me");
           setIsAuthenticated(response.status === 200);
+          setUserType(response.data?.userType);
         } catch (error) {
           setIsAuthenticated(false);
           console.error("Error fetching user data:", error);
@@ -29,6 +31,17 @@ const withAuth = <P extends object>(Component: ComponentType<P>) => {
       }
     }, [isAuthenticated, router]);
 
+    // Redirect to home if userType is 'viewer'
+    useEffect(() => {
+      if (
+        isAuthenticated &&
+        userType === "viewer" &&
+        router.pathname === "/admin"
+      ) {
+        router.replace("/");
+      }
+    }, [isAuthenticated, userType, router]);
+    
     // Render the component if authenticated
     return isAuthenticated ? <Component {...(props as P)} /> : null;
   };

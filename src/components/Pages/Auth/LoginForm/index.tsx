@@ -10,6 +10,7 @@ import { logUser, regUser } from "@/server/actions";
 import { toast } from "react-toastify";
 import useTokenStore from "@/stores/token.store";
 import { useRouter } from "next/router";
+import { auth } from "@/server/axiosConfig";
 
 const LoginForm = () => {
   const email = useAuthStore((state) => state.logEmail);
@@ -31,9 +32,27 @@ const LoginForm = () => {
             autoClose: 2000,
             position: "top-center",
           });
+
           setAccessToken(response.data.accessToken);
           setRefreshToken(response.data.refreshToken);
-          await router.push("/");
+
+          try {
+            const meResponse = await auth.get("/me");
+            const userType = meResponse.data.userType;
+
+            if (userType === "superAdmin") {
+              await router.push("/admin");
+            } else if (userType === "viewer") {
+              await router.push("/");
+            }
+          } catch (error: any) {
+            toast(error.response?.data?.reason || "An error occurred", {
+              type: "error",
+              autoClose: 2000,
+              position: "top-center",
+            });
+            return error.response?.data || "An error occurred";
+          }
         }
         return response.data;
       } catch (error: any) {
