@@ -38,7 +38,7 @@ const LoginForm = () => {
 
           try {
             const meResponse = await auth.get("/me");
-            const userType = meResponse.data.userType;
+            const userType = meResponse.data?.userType;
 
             if (userType === "superAdmin") {
               await router.push("/admin");

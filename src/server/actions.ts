@@ -22,7 +22,7 @@ export const confirmResetPass = async (credentials: {
   password?: string;
 }) => {
   return await auth.patch(
-    `https://www.studiosy.info/v1/auth/email-verification?token=${credentials?.token}`,
+    `/auth/email-verification?token=${credentials?.token}`,
     credentials?.password
   );
 };
@@ -30,7 +30,5 @@ export const confirmResetPass = async (credentials: {
 export const confirmVerify = async (credential: {
   token?: ResetAndVerifyToken;
 }) => {
-  return await axios.get(
-    `https://www.studiosy.info/v1/auth/email-verification?token=${credential?.token}`
-  );
+  return await auth.get(`/auth/email-verification?token=${credential?.token}`);
 };
