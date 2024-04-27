@@ -42,7 +42,7 @@ const withAuth = <P extends object>(Component: ComponentType<P>) => {
         router.replace("/");
       }
     }, [isAuthenticated, userType, router]);
-    
+
     // Render the component if authenticated
     return isAuthenticated ? <Component {...(props as P)} /> : null;
   };
