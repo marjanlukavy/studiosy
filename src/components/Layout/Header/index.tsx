@@ -1,7 +1,9 @@
 import LogoTitle from "@/components/UI/LogoTitle";
+import SelectCountry from "@/components/UI/Modals/SelectCountry";
 import {
   LeftArrowIconSVG,
   LocationIconSVG,
+  SelectIconSVG,
   UserProfileIconSVG,
 } from "@/components/UI/SVGIcons";
 import Link from "next/link";
@@ -27,6 +29,8 @@ const Header = () => {
           Назад
         </Link>
       ) : null}
+
+      <SelectCountry />
 
       <div className="flex items-center justify-center m-auto">
         <LogoTitle />
