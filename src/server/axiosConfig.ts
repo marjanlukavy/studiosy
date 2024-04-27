@@ -9,6 +9,9 @@ export const auth = axios.create({
     : "https://www.studiosy.info/v1",
   headers: {
     "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    "Access-Control-Allow-Credentials": "true",
   },
 } as CreateAxiosDefaults);
 
