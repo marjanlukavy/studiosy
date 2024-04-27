@@ -415,3 +415,31 @@ export const PhoneIconSVG = () => {
     </svg>
   );
 };
+
+export const SelectIconSVG = () => {
+  return (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6.65317 25.5067C9.05317 27.88 12.3598 29.3334 15.9998 29.3334C23.3598 29.3334 29.3332 23.36 29.3332 16C29.3332 8.64004 23.3598 2.66671 15.9998 2.66671C8.63984 2.66671 2.6665 8.64004 2.6665 16C2.6665 16.92 2.75984 17.8134 2.93317 18.6934"
+        stroke="#A1A1A1"
+        stroke-width="2"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M20.7068 14.3198L16.0002 19.0131L14.7068 17.7331L11.7735 14.7998L11.2935 14.3198"
+        stroke="#A1A1A1"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
