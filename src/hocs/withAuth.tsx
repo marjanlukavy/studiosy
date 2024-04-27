@@ -8,6 +8,7 @@ const withAuth = <P extends object>(Component: ComponentType<P>) => {
       null
     );
     const [userType, setUserType] = useState<string | null>(null);
+
     const router = useRouter();
 
     useEffect(() => {
