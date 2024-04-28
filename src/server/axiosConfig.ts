@@ -1,7 +1,7 @@
 import axios, { CreateAxiosDefaults } from "axios";
 import useTokenStore from "@/stores/token.store";
 
-const dev = false; // CORS failed on dev with https:// , but good on prod vercel
+const dev = true; // CORS failed on dev with https:// , but good on prod vercel
 
 export const auth = axios.create({
   baseURL: dev
@@ -9,9 +9,6 @@ export const auth = axios.create({
     : "https://www.studiosy.info/v1",
   headers: {
     "Content-Type": "application/json",
-    // "Access-Control-Allow-Origin": "*",
-    // "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-    // "Access-Control-Allow-Credentials": "true",
   },
 } as CreateAxiosDefaults);
 
@@ -25,6 +22,19 @@ export const main = axios.create({
 } as CreateAxiosDefaults);
 
 auth.interceptors.request.use(
+  async (config) => {
+    const token = useTokenStore.getState?.().accessToken;
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+main.interceptors.request.use(
   async (config) => {
     const token = useTokenStore.getState?.().accessToken;
     if (token) {

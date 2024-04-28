@@ -1,24 +1,86 @@
-import StudioHeader from "@/components/UI/StudioHeader";
 import Image from "next/image";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import StudioHeader from "@/components/UI/StudioHeader";
+import { StudioType } from "@/types/studio";
+import { useQuery } from "@tanstack/react-query";
+import { getStageById, getStudioById } from "@/server/actions";
+import { useRouter } from "next/router";
+import { StageType } from "@/types/stage";
+import Link from "next/link";
 
 const StageDetails = () => {
+  const router = useRouter();
+  const query = router.query as { id: string };
+
+  const {
+    isPending: stageIsPending,
+    error: stageError,
+    data: stageData,
+  } = useQuery({
+    queryKey: [query.id],
+    queryFn: async () => {
+      try {
+        const response = await getStageById(query.id);
+        return response.data as StageType;
+      } catch (error) {
+        console.error("Error fetching cities:", error);
+      }
+    },
+  });
+
+  const {
+    isPending: studioIsPending,
+    error: studioError,
+    data: studioData,
+  } = useQuery({
+    queryKey: [stageData?.studioId],
+    queryFn: async () => {
+      try {
+        const response = await getStudioById(stageData?.studioId || "");
+        return response.data as StudioType;
+      } catch (error) {
+        console.error("Error fetching cities:", error);
+      }
+    },
+  });
+
+  const getStageIterableNumber = useCallback(() => {
+    const index = studioData?.stages.findIndex((el) => el.id === query.id);
+    return index !== -1 ? index : studioData?.stages.length;
+  }, [query.id, studioData?.stages]);
+
+  useEffect(() => {
+    const stageNumber = getStageIterableNumber();
+    if (typeof stageNumber !== "undefined" && !isNaN(stageNumber)) {
+      setCurrentStage(stageNumber);
+    }
+  }, [getStageIterableNumber]);
+
+  const [currentStage, setCurrentStage] = useState(0);
+
+  const stageChangeHandler = (index: number) => {
+    setCurrentStage(index);
+  };
+
+  if (!studioData) {
+    return null;
+  }
+
   return (
     <div className="flex gap-1 w-full justify-center items-center">
       <div className="centered-container flex px-6 pb-5 flex-col pt-[10px] relative w-full">
-        <StudioHeader />
+        <StudioHeader studioData={studioData} />
         <div className="mt-4 flex gap-6 overflow-scroll">
-          {[1, 2, 3, 4, 5].map((_, index) => {
+          {stageData?.images.map((stageImage, index) => {
             return (
               <div
                 className="relative size-[262px] rounded-[17px] overflow-hidden shrink-0"
-                key={index}
+                key={stageImage.id}
               >
                 <Image
-                  src={
-                    "https://static01.nyt.com/images/2023/12/18/multimedia/00xp-absurd-ai-03/00xp-absurd-ai-03-facebookJumbo-v5.jpg"
-                  }
-                  alt={""}
+                  // need to a add fallback photo
+                  src={stageImage?.path || ""}
+                  alt={stageImage?.id || "Stage Image"}
                   fill
                   className="object-cover"
                 />
@@ -28,37 +90,35 @@ const StageDetails = () => {
         </div>
         <div className="mt-10 flex flex-col items-center gap-5">
           <div className="flex gap-[10px]">
-            {[1, 2, 3].map((_, index) => (
-              <button
-                key={index}
+            {studioData?.stages.map((stage, index) => (
+              <Link
+                key={stage.id}
                 className={`font-extrabold text-[20px] leading-[23.44px] text-white ${
-                  true ? "bg-blue" : "bg-transparent border-4 border-blue"
+                  index === currentStage
+                    ? "bg-blue"
+                    : "bg-transparent border-4 border-blue"
                 } rounded-lg overflow-hidden py-[11px] px-[40.5px]`}
+                onClick={() => stageChangeHandler(index)}
+                href={`/stage/${stage.id}`}
               >
                 Stage {index + 1}
-              </button>
+              </Link>
             ))}
           </div>
           <div className="flex flex-col items-center mt-[30px] gap-5">
             <span className="text-black font-roboto font-semibold leading-[47.21px] text-[40.29px]">
-              1000 uah/h
+              {stageData?.cost} uah/h
             </span>
             <p className="text-gray font-normal font-roboto text-[24px] leading-[28.13px] text-center">
-              Lorem ipsum dolor sit amet consectetur. Odio viverra interdum at
-              elementum dui sed semper at fusce. Faucibus ac commodo tristique
-              mi blandit purus. Porttitor suspendisse vitae posuere mus posuere
-              turpis elementum lectus. Nunc tempus id enim sagittis diam
-              dignissim mauris. Platea in enim ac semper libero enim donec
-              interdum. Eu et sollicitudin orci varius odio velit sagittis mi.
-              Pellentesque dis purus adipiscing egestas vitae.
+              {stageData?.description}
             </p>
           </div>
           <div className="bg-gray h-[1px] w-full" />
           <div className="flex items-center justify-center gap-5 max-w-[715px] flex-wrap m-auto">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((_, index) => (
-              <div className="px-2 py-1" key={index}>
+            {studioData?.tags.map((tag) => (
+              <div className="px-2 py-1" key={tag.id}>
                 <span className="font-roboto text-[16px] leading-[18.75px] text-gray">
-                  #cyclorama {index}
+                  #{tag?.value}
                 </span>
               </div>
             ))}

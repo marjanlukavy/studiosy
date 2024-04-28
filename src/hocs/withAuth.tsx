@@ -28,7 +28,7 @@ const withAuth = <P extends object>(Component: ComponentType<P>) => {
     // Redirect to login if not authenticated
     useEffect(() => {
       if (isAuthenticated === false) {
-        router.replace("auth/login");
+        router.replace("/auth/login");
       }
     }, [isAuthenticated, router]);
 
