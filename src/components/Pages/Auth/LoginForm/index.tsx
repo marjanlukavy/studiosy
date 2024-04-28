@@ -41,9 +41,9 @@ const LoginForm = () => {
             const userType = meResponse.data?.userType;
 
             if (userType === "superAdmin") {
-              await router.push("/admin");
+              await router.replace("/admin");
             } else if (userType === "viewer") {
-              await router.push("/");
+              await router.replace("/");
             }
           } catch (error: any) {
             toast(error.response?.data?.reason || "An error occurred", {

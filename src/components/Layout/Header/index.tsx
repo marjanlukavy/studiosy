@@ -30,7 +30,7 @@ const Header = () => {
         </Link>
       ) : null}
 
-      <SelectCountry />
+      {pathname === "/" ? <SelectCountry /> : null}
 
       <div className="flex items-center justify-center m-auto">
         <LogoTitle />

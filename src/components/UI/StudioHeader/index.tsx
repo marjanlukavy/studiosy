@@ -1,25 +1,38 @@
 import Image from "next/image";
 import React from "react";
 import { LinkIconSVG, PhoneIconSVG, SMSIconSVG } from "../SVGIcons";
+import { StudioType } from "@/types/studio";
+import useCityStore, { City } from "@/stores/city.store";
 
-const StudioHeader = () => {
+interface StudioHeaderPropsType {
+  studioData: StudioType;
+}
+
+const StudioHeader = ({ studioData }: StudioHeaderPropsType) => {
+  const currentCity: City = useCityStore((state) => state.currentCity);
+
+  if (!studioData) {
+    return null;
+  }
+
   return (
     <div className="flex justify-between items-center">
       <div className="flex gap-[11px]">
         <div className="inner-shadow relative size-[66px] rounded-full">
           <Image
-            src={""}
-            alt={""}
+            // need to add a fallback photo
+            src={studioData.logo.path}
+            alt={studioData.logo.id}
             fill
             className="rounded-full overflow-hidden"
           />
         </div>
         <div>
           <h3 className="font-robot text-[32px] font-light leading-[37.5px] text-black">
-            Studio 1
+            {studioData.name}
           </h3>
           <span className="text-[18px] leading-[21.09px] text-gray font-roboto font-light">
-            Kyiv, Very Famous Person str., 18/94
+            {currentCity.name}, {studioData.postalAddress.street}
           </span>
         </div>
       </div>

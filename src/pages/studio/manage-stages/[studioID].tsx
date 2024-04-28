@@ -9,20 +9,52 @@ import InputField from "@/components/UI/InputField";
 import TextArea from "@/components/UI/FormElements/TextArea";
 import BlueButton from "@/components/UI/Buttons/BlueButton";
 import StudioWarning from "@/components/UI/StudioWarning";
+import { useRouter } from "next/router";
+import withAuth from "@/hocs/withAuth";
+import { StudioType } from "@/types/studio";
+import { getStudioById } from "@/server/actions";
+import { useQuery } from "@tanstack/react-query";
 
 const ManageStages = () => {
+  const router = useRouter();
+
+  const query = router.query as { studioID: string };
+
+  const {
+    isPending: studioIsPending,
+    error: studioError,
+    data: studioData,
+  } = useQuery({
+    queryKey: [query.studioID],
+    queryFn: async () => {
+      try {
+        const response = await getStudioById(query.studioID);
+        return response.data as StudioType;
+      } catch (error) {
+        console.error("Error fetching cities:", error);
+      }
+    },
+  });
+
   const { stages, activeIndex, setActiveIndex, addStage, removeStage } =
     useUploadStore();
 
   const handleAddUpload = () => {
     addStage(); // Create a new stage
-    setActiveIndex(stages.length - 1); // Set the active index to the new stage
+    setActiveIndex(stages.length); // Set the active index to the new stage
   };
+
+  console.log(stages);
+  console.log(activeIndex);
+
+  if (!studioData) {
+    return null;
+  }
 
   return (
     <div className="flex flex-col gap-1 w-full justify-center items-center">
       <div className="centered-container flex pl-[15px] flex-col pt-[10px] pb-[37px] relative w-full">
-        <StudioHeader />
+        <StudioHeader studioData={studioData} />
         <div>
           <IterateUpload />
         </div>
@@ -67,4 +99,4 @@ const ManageStages = () => {
   );
 };
 
-export default ManageStages;
+export default withAuth(ManageStages);
