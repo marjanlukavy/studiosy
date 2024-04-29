@@ -89,15 +89,15 @@ const StageDetails = () => {
           })}
         </div>
         <div className="mt-10 flex flex-col items-center gap-5">
-          <div className="flex gap-[10px]">
+          <div className="flex gap-[10px] w-full justify-center">
             {studioData?.stages.map((stage, index) => (
               <Link
                 key={stage.id}
-                className={`font-extrabold text-[20px] leading-[23.44px] text-white ${
+                className={`text-[20px] leading-[23.44px] ${
                   index === currentStage
-                    ? "bg-blue"
-                    : "bg-transparent border-4 border-blue"
-                } rounded-lg overflow-hidden py-[11px] px-[40.5px]`}
+                    ? "bg-blue font-extrabold text-white"
+                    : "bg-transparent border-4 border-blue text-blue"
+                } rounded-lg overflow-hidden py-[11px] max-w-[150px] w-full flex items-center justify-center`}
                 onClick={() => stageChangeHandler(index)}
                 href={`/stage/${stage.id}`}
               >
