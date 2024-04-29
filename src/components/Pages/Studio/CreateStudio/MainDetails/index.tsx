@@ -2,6 +2,9 @@ import React, { ChangeEvent } from "react";
 import InputField from "@/components/UI/InputField";
 import TextArea from "@/components/UI/FormElements/TextArea";
 import useStudioStore from "@/stores/studio.store";
+import InputFieldWithDropdown from "@/components/UI/InputField/InputFieldWithDropdown";
+import { BsPinMapFill } from "react-icons/bs";
+import CoordinatesSelectionModal from "@/components/UI/Modals/CoordinatesSelectionModal";
 
 const MainDetails = () => {
   const studioItem = useStudioStore((state) => state.studioItem);
@@ -13,10 +16,9 @@ const MainDetails = () => {
   ) => {
     setStudioItem(field, e.target.value);
   };
-  console.log(studioItem);
 
   return (
-    <div className="mt-5 w-full text-center">
+    <div className="mt-5 w-full text-center relative">
       <div className="w-full flex flex-col gap-[10px] max-w-[575px] m-auto">
         <InputField
           placeholder={"Ім'я"}
@@ -36,6 +38,7 @@ const MainDetails = () => {
           value={studioItem.website}
           onChange={(e) => handleChange(e, "website")}
         />
+        <InputFieldWithDropdown placeholder={"Місто"} name="country" />
         <div className="flex gap-[17px]">
           <InputField
             placeholder={"Довжина"}
@@ -50,12 +53,19 @@ const MainDetails = () => {
             onChange={(e) => handleChange(e, "width")}
           />
         </div>
+        <div className="w-full flex items-center justify-center">
+          <BsPinMapFill
+            size={25}
+            className="hover:text-blue transition-all duration-300 ease-in-out cursor-pointer"
+          />
+        </div>
         <TextArea
           placeholder={"Теги"}
           value={studioItem.tags.join(" ")}
           onChange={(e) => handleChange(e, "tags")}
         />
       </div>
+      <CoordinatesSelectionModal />
     </div>
   );
 };

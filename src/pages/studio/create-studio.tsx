@@ -8,7 +8,7 @@ import React from "react";
 
 const CreateStudio = () => {
   return (
-    <section className="centered-container flex items-center flex-col pt-10 relative pb-[124px]">
+    <section className="centered-container flex items-center flex-col pt-10 relative mb-[100px] pb-[124px]">
       <AddLogo />
       <MainDetails />
       <SelectMultiplePhoneFields />

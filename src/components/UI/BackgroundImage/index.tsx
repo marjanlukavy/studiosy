@@ -21,11 +21,11 @@ export default function BackgroundImage({
 }: BackgroundImageProps & BackgroundImageAdditionalProps) {
   const pathname = usePathname();
 
-  const conditionalClass = pathname === "/studio/my-studio" ? "h-screen" : "";
+  // const conditionalClass = pathname === "/studio/my-studio" ? "h-screen" : "";
 
   return (
     <div
-      className={classNames("w-full relative", conditionalClass, className)}
+      className={classNames("w-full relative min-h-dvh", className)}
       {...props}
     >
       <div className="absolute inset-0 -z-10">

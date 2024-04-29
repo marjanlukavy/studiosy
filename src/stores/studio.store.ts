@@ -5,6 +5,7 @@ export interface StudioItem {
   website: string;
   length: string;
   width: string;
+  country: string;
   tags: string[];
   image: string | null;
   phoneNumbers: { name: string; phoneNumber: string }[];
@@ -32,6 +33,7 @@ const useStudioStore = create<StudioState>((set) => ({
     phoneNumbers: [],
     emails: [],
     socialNetworks: [],
+    country: "",
   },
   setStudioItem: (field, value) =>
     set((state) => ({

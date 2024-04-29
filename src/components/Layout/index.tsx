@@ -10,7 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <BackgroundImage>
       <Header />
-      <main className="w-full flex items-center justify-center mb-[111px]">
+      <main className="w-full flex items-center justify-center ">
         {children}
       </main>
     </BackgroundImage>

@@ -34,11 +34,11 @@ const SelectCountry = () => {
 
   const handleOptionClick = (city: City) => {
     setCurrentCity(city);
-    setIsOpen(false); // Close the dropdown after selecting an option
+    setIsOpen(false);
   };
 
   return (
-    <div className="relative" ref={ref}>
+    <div className="relative z-[2]" ref={ref}>
       <div
         className="flex items-center gap-[10px] cursor-pointer"
         onClick={toggleDropdown}
